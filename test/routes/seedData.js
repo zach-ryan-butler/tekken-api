@@ -37,9 +37,8 @@ const characters = [
     'alignment': 'Good (TK3-onwards)Neutral (TK6)'
   }];
 
-module.exports = async() => {
-  const characterSeed = await characters.map(character => {
+module.exports = () => {
+  Promise.all(characters.map(character => {
     return Character.create(character);
-  });
-  return characterSeed;
+  }));
 };
